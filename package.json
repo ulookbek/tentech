@@ -22,6 +22,7 @@
   "description": "",
   "devDependencies": {
     "gulp": "^5.0.0",
-    "gulp-file-include": "^2.3.0"
+    "gulp-file-include": "^2.3.0",
+    "gulp-replace": "^1.1.4"
   }
 }
