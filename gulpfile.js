@@ -19,7 +19,7 @@ function fixCssPaths() {
 
 function html() {
     return gulp
-        .src(['scss/**/*','img/**/*', 'js/**/*', 'lib/**/*', 'css/**/*','src/*.html', '!src/components/*.html'])
+        .src(['./*'])
         .pipe(
             fileInclude({
                 prefix: '@@',
