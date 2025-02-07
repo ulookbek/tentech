@@ -19,7 +19,7 @@ function fixCssPaths() {
 
 function html() {
     return gulp
-        .src(['./src/**/*.html'])
+        .src(['./*'])
         .pipe(
             fileInclude({
                 prefix: '@@',
@@ -30,6 +30,6 @@ function html() {
 }
 
 // Определяем экспортируемые задачи
-exports.build = html;
+// exports.build = html;
 // Если хотите, чтобы по умолчанию сборка запускалась и затем следила за изменениями:
 exports.default = gulp.series(fixImagePaths, fixCssPaths, html);
