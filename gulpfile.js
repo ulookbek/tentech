@@ -1,6 +1,6 @@
-import gulp from 'gulp';
-import fileInclude from 'gulp-file-include';
-import replace from 'gulp-replace';
+const gulp = require('gulp');
+const fileInclude = require('gulp-file-include');
+const replace = require('gulp-replace');
 
 // Пути к исходным и собранным файлам
 const paths = {
@@ -17,7 +17,7 @@ const paths = {
         dest: 'docs/lib/',
     },
     js: {
-        src: 'js/**/*', // Все файлы и папки в lib
+        src: 'js/**/*.js',
         dest: 'docs/js/',
     },
     images: {
@@ -27,7 +27,7 @@ const paths = {
 };
 
 // Обработка HTML с инклюдами
-export const html = () =>
+const html = () =>
     gulp
         .src(paths.html.src)
         .pipe(
@@ -43,21 +43,31 @@ export const html = () =>
         .pipe(replace(/(\.\.\/)+js\//g, './js/'))
         .pipe(gulp.dest(paths.html.dest));
 
-export const lib = () =>
+// Копирование библиотеки lib
+const lib = () =>
     gulp.src(paths.lib.src).pipe(gulp.dest(paths.lib.dest));
 
 // Копирование CSS
-export const css = () =>
+const css = () =>
     gulp.src(paths.css.src).pipe(gulp.dest(paths.css.dest));
 
-export const js = () =>
+// Копирование JS
+const js = () =>
     gulp.src(paths.js.src).pipe(gulp.dest(paths.js.dest));
 
 // Копирование изображений
-export const images = () =>
+const images = () =>
     gulp.src(paths.images.src).pipe(gulp.dest(paths.images.dest));
 
 // Основная задача сборки
-export const build = gulp.series(html, css, images, lib, js);
+const build = gulp.series(html, css, images, lib, js);
 
-export default build;
+module.exports = {
+    html,
+    lib,
+    css,
+    js,
+    images,
+    build,
+    default: build,
+};
