@@ -36,6 +36,7 @@ export const html = () =>
         .pipe(replace(/(\.\.\/)+img\//g, './img/')) // Заменяем все '../img/' на './img/'
         .pipe(replace(/(\.\.\/)+lib\//g, './lib/'))
         .pipe(replace(/(\.\.\/)+css\//g, './css/'))
+        .pipe(replace(/(\.\.\/)+js\//g, './js/'))
         .pipe(gulp.dest(paths.html.dest));
 
 export const lib = () =>
