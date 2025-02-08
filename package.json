@@ -24,5 +24,14 @@
     "gulp": "^5.0.0",
     "gulp-file-include": "^2.3.0",
     "gulp-replace": "^1.1.4"
+  },
+  "dependencies": {
+    "browser-sync": "^3.0.3",
+    "del": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-imagemin": "^9.1.0",
+    "gulp-sass": "^6.0.0",
+    "gulp-uglify": "^3.0.2",
+    "sass": "^1.84.0"
   }
 }
