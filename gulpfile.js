@@ -12,6 +12,10 @@ const paths = {
         src: 'css/**/*.css',
         dest: 'docs/css/',
     },
+    lib: {
+        src: 'lib/**/*', // Все файлы и папки в lib
+        dest: 'docs/lib/',
+    },
     images: {
         src: 'img/**/*.{jpg,jpeg,png,svg,gif}',
         dest: 'docs/img/',
@@ -32,6 +36,9 @@ export const html = () =>
         // .pipe(replace(/(\.\.\/)+img\//g, './img/')) // Заменяем все '../img/' на './img/'
         .pipe(gulp.dest(paths.html.dest));
 
+export const lib = () =>
+    gulp.src(paths.lib.src).pipe(gulp.dest(paths.lib.dest));
+
 // Копирование CSS
 export const css = () =>
     gulp.src(paths.css.src).pipe(gulp.dest(paths.css.dest));
@@ -41,6 +48,6 @@ export const images = () =>
     gulp.src(paths.images.src).pipe(gulp.dest(paths.images.dest));
 
 // Основная задача сборки
-export const build = gulp.series(html, css, images);
+export const build = gulp.series(html, css, images, lib);
 
 export default build;
