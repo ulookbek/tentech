@@ -29,7 +29,7 @@ export const html = () =>
             })
         )
         // Исправление путей к изображениям
-        .pipe(replace(/(\.\.\/)+img\//g, './img/')) // Заменяем все '../img/' на './img/'
+        // .pipe(replace(/(\.\.\/)+img\//g, './img/')) // Заменяем все '../img/' на './img/'
         .pipe(gulp.dest(paths.html.dest));
 
 // Копирование CSS
